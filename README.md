@@ -4,15 +4,15 @@
 
 ## Bài nộp — Dương Mạnh Huy (2A202603301)
 
-Nhãn Road v1.0, CVAT for images 1.1, **không kèm ảnh** · revision 1 · Thư mục Drive: [lab-day11-duongmanhhuy](https://drive.google.com/drive/folders/1Qjf9XyPRsvSSQvpNROjFiFCZkIEaPRll?usp=sharing)
+Nhãn Road v1.0, CVAT for images 1.1, **không kèm ảnh** · revision 2 (nộp lại sau QC 1, bản r1 giữ trong thư mục con [`r1/`](https://drive.google.com/drive/folders/1m-1U4s2Bx94fjjiZUeb0KN3f4h443BeB) trên Drive, sha256 front `ffcf678812f8`, fisheye `5f6198a62d7a`) · Thư mục Drive: [lab-day11-duongmanhhuy](https://drive.google.com/drive/folders/1Qjf9XyPRsvSSQvpNROjFiFCZkIEaPRll?usp=sharing)
 
 | File | Nội dung | sha256 (12 ký tự đầu) |
 | --- | --- | --- |
-| [`duongmanhhuy-front.zip`](https://drive.google.com/file/d/17YWLFj_Mksqw2GjEp_vgsfPKWzFjiTqf/view?usp=sharing) | task front, A01–A12 | `ffcf678812f8` |
-| [`duongmanhhuy-fisheye.zip`](https://drive.google.com/file/d/1cgUtjzSpeixG2cb8eagF5q6-wzlfFaZ5/view?usp=sharing) | task fisheye, B01–B08 | `5f6198a62d7a` |
-| [`duongmanhhuy-manifest.json`](https://drive.google.com/file/d/1gy6dMffG60W-iamM2XZqW0nELCbYRBqW/view?usp=sharing) | manifest bàn giao (`road_check lint --manifest`), `contains_images: false` | `cab476e80370` |
+| [`duongmanhhuy-front.zip`](https://drive.google.com/file/d/17YWLFj_Mksqw2GjEp_vgsfPKWzFjiTqf/view?usp=sharing) | task front, A01–A12 | `8c1e3f91c11d` |
+| [`duongmanhhuy-fisheye.zip`](https://drive.google.com/file/d/1cgUtjzSpeixG2cb8eagF5q6-wzlfFaZ5/view?usp=sharing) | task fisheye, B01–B08 | `1f641e72a410` |
+| [`duongmanhhuy-manifest.json`](https://drive.google.com/file/d/1gy6dMffG60W-iamM2XZqW0nELCbYRBqW/view?usp=sharing) | manifest bàn giao (`road_check lint --manifest`), `contains_images: false`, revision 2 | `c323ff0091dc` |
 
-sha256 của hai zip khớp trường `files[].sha256` trong manifest. `road_check lint` trên hai zip: 20 ảnh, không còn lỗi nặng ngoài QC1-02 ở A05, A06, A09, A12 (ảnh không thấy vạch, chờ coach xác nhận).
+sha256 của hai zip khớp trường `files[].sha256` trong manifest. `road_check lint` trên hai zip: 20 ảnh, không còn lỗi nặng ngoài QC1-02 ở A05, A06, A09, A12 (ảnh không thấy vạch, chờ coach xác nhận). Revision 2 sửa 3 lỗi chính theo phiếu QC 1 của Phạm Minh Quân và 3 ca mơ hồ theo lời lead (chi tiết: `submission/duongmanhhuy-report.md`, mục 4).
 
 | M | Giờ | Việc | Lệnh kiểm tra |
 | --- | --- | --- | --- |
