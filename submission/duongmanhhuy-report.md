@@ -76,13 +76,17 @@ Nhãn của bạn đi vào model ở đâu? Chọn một lỗi đã sửa và n�
 
 ## 8. (Tùy chọn, buffer) Từ polyline đến đích row-anchor
 
-| y                  | 720 | 680 | 640 | 600 | 560 |
-| ------------------ | --: | --: | --: | --: | --: |
-| x của chúng tôi |     |     |     |     |     |
-| x của bạn kia    |     |     |     |     |     |
+Ảnh A01, vạch **R1** (trắng đứt, bên phải làn đi). Bản của tôi: revision 2; bạn kia: Phạm Minh Quân (`phamminhquan-front.zip`, revision 1). Số kiểm lại bằng `python -m road_lab.rowanchor <file>.zip --image A01 --position R1`.
+
+| y               | 720 | 680 | 640 | 600 | 560 |
+| --------------- | --: | --: | --: | --: | --: |
+| x của chúng tôi | không có làn | không có làn | 599.0 | 543.7 | 483.1 |
+| x của bạn kia   | không có làn | không có làn | 599.0 | 544.9 | 483.1 |
+
+Tính tay hàng 640: đoạn R1 chứa y = 640 nối (668, 679) và (576, 627), nên x = 668 + (640 − 679) × (576 − 668) / (627 − 679) = 668 − 69,0 = **599,0**, trùng với script. Hàng 600 khác nhau vì điểm thứ ba của R1: của tôi (532.4, 590.6), của Quân (538, 594).
 
 Trả lời 3 câu:
 
-1. Năm số x đó chính là đích mà một model row-anchor học cho vạch này. Nếu bạn dừng polyline sớm 40 px, hàng nào đổi thành "không có làn"?
-2. So với bạn được kiểm (cùng ảnh): ở hàng 720 và hàng 560, hai bạn lệch nhau bao nhiêu pixel? Lệch ở hàng nào ảnh hưởng LKA nhiều hơn (slide 25)?
-3. Nếu polyline vẽ từ xa về gần (ngược quy tắc 2), cách tính trên có đổi không? Script nào sẽ gặp khó?
+1. R1 của tôi đi từ y = 679 (vệt đứt gần nhất) lên y = 502. Nếu dừng sớm 40 px ở đầu xa (điểm cuối y ≈ 542) thì **không hàng nào đổi**, vì hàng xa nhất 560 vẫn nằm trong đoạn 542–679. Nếu mất 40 px ở **đầu gần** (điểm đầu y ≈ 639) thì hàng **640** đổi thành "không có làn". Bảng cũng cho thấy hai hàng 720 và 680 đã là "không có làn" vì R1 bắt đầu ở vệt đứt y = 679: model row-anchor sẽ học rằng sát xe không có vạch phải, trong khi đó là đoạn quan trọng nhất.
+2. Hàng 720: cả hai đều "không có làn" nên lệch 0 px (cùng thiếu). Hàng 560: cả hai 483,1 → lệch 0 px. Lệch lớn nhất ở hàng 600: 1,2 px. Lệch ở **hàng gần (720)** ảnh hưởng LKA nhiều hơn, vì hàng gần quyết định vị trí ngang hiện tại của xe trong làn — sai ở đó làm bộ giữ làn đánh lái sai ngay lập tức; hàng xa chủ yếu ảnh hưởng ước lượng độ cong phía trước.
+3. Với polyline đi đơn điệu theo y, cách tính **không đổi**: hàm nội suy (`x_at_y` trong `geometry.py`) lấy min/max y của từng đoạn nên không phụ thuộc chiều vẽ. Nhưng nếu polyline có đoạn móc ngược (như L1 của A02 trước khi sửa) thì một hàng có thể cắt polyline hai lần, và hàm trả về giao điểm **đầu tiên tính từ điểm đầu** — đảo chiều vẽ sẽ đổi giá trị. Script gặp khó là **`road_check`**: nó giả định điểm đầu là điểm gần xe để kiểm chiều vẽ và so hai đầu polyline với GT (`lane_stop_px`), nên vẽ ngược bị bắt lỗi QC1-04; `rowanchor` cũng in cảnh báo "vẽ từ xa về gần".
