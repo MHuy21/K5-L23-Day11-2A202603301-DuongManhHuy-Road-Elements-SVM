@@ -2,6 +2,18 @@
 
 > Lab cá nhân, AI20K K5. Bạn gán nhãn phần tử đường theo guideline Road v1.0 trên CVAT của lớp: 12 ảnh camera trước BDD100K (A01–A12) và 8 ảnh fisheye WoodScape (B01–B08) là bắt buộc. Sau đó bạn kiểm lô của một bạn khác bằng Phiếu QC 1 và quyết định Release, Hold hoặc Rework. Nếu xong sớm, làm thêm ảnh A13–A16 và B09–B12 để lấy điểm thưởng. Không đưa ảnh lên app.cvat.ai.
 
+## Bài nộp — Dương Mạnh Huy (2A202603301)
+
+Nhãn Road v1.0, CVAT for images 1.1, **không kèm ảnh** · revision 1 · Thư mục Drive: [lab-day11-duongmanhhuy](https://drive.google.com/drive/folders/1Qjf9XyPRsvSSQvpNROjFiFCZkIEaPRll?usp=sharing)
+
+| File | Nội dung | sha256 (12 ký tự đầu) |
+| --- | --- | --- |
+| [`duongmanhhuy-front.zip`](https://drive.google.com/file/d/17YWLFj_Mksqw2GjEp_vgsfPKWzFjiTqf/view?usp=sharing) | task front, A01–A12 | `ffcf678812f8` |
+| [`duongmanhhuy-fisheye.zip`](https://drive.google.com/file/d/1cgUtjzSpeixG2cb8eagF5q6-wzlfFaZ5/view?usp=sharing) | task fisheye, B01–B08 | `5f6198a62d7a` |
+| [`duongmanhhuy-manifest.json`](https://drive.google.com/file/d/1gy6dMffG60W-iamM2XZqW0nELCbYRBqW/view?usp=sharing) | manifest bàn giao (`road_check lint --manifest`), `contains_images: false` | `cab476e80370` |
+
+sha256 của hai zip khớp trường `files[].sha256` trong manifest. `road_check lint` trên hai zip: 20 ảnh, không còn lỗi nặng ngoài QC1-02 ở A05, A06, A09, A12 (ảnh không thấy vạch, chờ coach xác nhận).
+
 | M | Giờ | Việc | Lệnh kiểm tra |
 | --- | --- | --- | --- |
 | M0 | 13:00 | Điểm danh. Kiểm repo, gói 28 ảnh trong `data/`, đăng nhập CVAT và guideline đã đọc. | `PYTHONPATH=src python3 -m road_lab.road_check selftest` |
