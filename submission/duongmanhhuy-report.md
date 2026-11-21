@@ -2,8 +2,8 @@
 
 Họ tên: Dương Mạnh Huy Mã học viên: 2A202603301
 Phiên bản CVAT: 2.81.0
-Guideline: Road v1.0 Lần nộp (`revision` trong manifest): 2
-Thời điểm export (ngày giờ trên CVAT): 2026-11-21 09:42 (front), 2026-11-21 09:48 (fisheye) — giờ Việt Nam (UTC+7); bản r1: 08:01 / 07:40 Số lần nộp lại sau Rework: 1
+Guideline: Road v1.0 Lần nộp (`revision` trong manifest): 3
+Thời điểm export (ngày giờ trên CVAT): 2026-11-21 09:42 (front), 09:48 (fisheye), 10:12 (front-extra), 10:15 (fisheye-extra) — giờ Việt Nam (UTC+7); bản r1: 08:01 / 07:40 Số lần nộp lại sau Rework: 1 (revision 3 chỉ thêm ảnh thêm, không đổi 20 ảnh bắt buộc)
 
 ## 1. Kiểm project
 
@@ -20,11 +20,11 @@ Thời điểm export (ngày giờ trên CVAT): 2026-11-21 09:42 (front), 2026-1
 | Task                            | Ảnh | lane | road_curb | crosswalk | drivable | traffic_light | traffic_sign |
 | ------------------------------- | ---: | ---: | --------: | --------: | -------: | ------------: | -----------: |
 | front                           |   12 |   28 |         8 |         5 |       20 |            28 |           22 |
-| front-extra (đã làm 0 / 4)   |    0 |   — |        — |        — |       — |            — |           — |
+| front-extra (đã làm 4 / 4)      |    4 |   10 |         0 |         2 |        6 |             7 |            7 |
 | fisheye                         |    8 |    6 |         7 |         6 |        4 |             4 |            1 |
-| fisheye-extra (đã làm 0 / 4) |    0 |   — |        — |        — |       — |            — |           — |
+| fisheye-extra (đã làm 3 / 4)    |    4 |    1 |         0 |         3 |        1 |             0 |            0 |
 
-Nguồn số liệu: `files[].shapes_by_label` trong `duongmanhhuy-manifest.json` (revision 2, tạo bằng `road_check lint --manifest`). So với revision 1: front +1 drivable (A10 alternative); fisheye −1 road_curb (B03), −1 crosswalk (B06).
+Nguồn số liệu: `files[].shapes_by_label` trong `duongmanhhuy-manifest.json` (revision 3, tạo bằng `road_check lint --manifest`); dòng extra đếm riêng từ export của task `front-extra`, `fisheye-extra` (đã gộp vào hai zip nộp theo SUBMISSION.md). So với revision 1: front +1 drivable (A10 alternative); fisheye −1 road_curb (B03), −1 crosswalk (B06). B09: chỉ đặt 4 tag, không gán shape — không xác định được đèn/biển sát mép và vạch làn theo kế hoạch ảnh, nên bỏ qua ảnh này (ảnh thêm bỏ qua không bị trừ điểm).
 
 ## 3. Bảng ca khó
 
